@@ -1,8 +1,7 @@
 # StrSanitizer
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/str_sanitizer`. To experiment with that code, run `bin/console` for an interactive prompt.
+Welcome to this gem. This gem is about String Sanitization. This gem sanitizes the string which is given.
 
-TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
