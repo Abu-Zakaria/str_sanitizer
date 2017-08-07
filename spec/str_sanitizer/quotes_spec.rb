@@ -29,13 +29,22 @@ RSpec.describe StrSanitizer::Quotes do
     expect(escaped_string).to eq("They said, \\'hello world!\\'")
   end
 
+  it "returns string with both, single and double quotes escaped" do
+    test_string = "The man says, \"Don't do it\""
+    escaped_string = @class_methods.both_quotes(test_string)
+    
+    expect(escaped_string).to eq("The man says, \\\"Don\\'t do it\\\"")
+  end
+
   it "doesn't do anything if no quote is found" do
     test_string = "Hey there!"
     double_quote_escaped = @class_methods.double_quote(test_string)
     single_quote_escaped = @class_methods.single_quote(test_string)
+    both_quotes_escaped = @class_methods.both_quotes(test_string)
 
     expect(double_quote_escaped).to eq("Hey there!")
     expect(single_quote_escaped).to eq("Hey there!")
+    expect(both_quotes_escaped).to eq("Hey there!")
   end
 end
 
