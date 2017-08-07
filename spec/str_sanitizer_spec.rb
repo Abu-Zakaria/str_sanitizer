@@ -13,6 +13,10 @@ RSpec.describe StrSanitizer do
     expect(StrSanitizer.respond_to? :single_quote).to eq true
   end
 
+  it "has a method named 'both_quotes'" do
+    expect(StrSanitizer.respond_to? :both_quotes).to eq true
+  end
+
   it "returns a sanitized string with escaped double-quote" do
     test_string = 'He said, "Look!"'
     sanitized_string = StrSanitizer.double_quote(test_string) 
