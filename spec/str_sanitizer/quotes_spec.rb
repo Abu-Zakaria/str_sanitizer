@@ -22,7 +22,7 @@ RSpec.describe StrSanitizer::Quotes do
     expect(escaped_string).to eq('The nerd said, \\"Look!\\"')
   end
 
-  it "return string with single quotes escaped" do
+  it "returns string with single quotes escaped" do
     test_string = "They said, 'hello world!'"
     escaped_string = @class_methods.single_quote(test_string)
 
