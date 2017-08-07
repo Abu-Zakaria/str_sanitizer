@@ -1,5 +1,6 @@
 require "str_sanitizer/version"
+require "str_sanitizer/quotes"
 
-module StrSanitizer
-  # Your code goes here...
+class StrSanitizer
+  include Quotes
 end
