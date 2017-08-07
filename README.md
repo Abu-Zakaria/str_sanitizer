@@ -1,4 +1,6 @@
 [![Gem Version](https://badge.fury.io/rb/str_sanitizer.svg)](https://badge.fury.io/rb/str_sanitizer)
+[![Build Status](https://travis-ci.org/JakariaBlaine/str_sanitizer.svg?branch=master)](https://travis-ci.org/JakariaBlaine/str_sanitizer)
+
 # StrSanitizer
 
 Welcome to this gem. This gem is about String Sanitization. This gem sanitizes the string which is given.
