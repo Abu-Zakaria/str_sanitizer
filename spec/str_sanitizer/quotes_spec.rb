@@ -26,7 +26,7 @@ RSpec.describe StrSanitizer::Quotes do
     test_string = "They said, 'hello world!'"
     escaped_string = @class_methods.single_quote(test_string)
 
-    expect(escaped_string).to eq("They said, \'hello world!\'")
+    expect(escaped_string).to eq("They said, \\'hello world!\\'")
   end
 end
 
