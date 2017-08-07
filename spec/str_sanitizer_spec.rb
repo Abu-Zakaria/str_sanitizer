@@ -17,7 +17,7 @@ RSpec.describe StrSanitizer do
     test_string = 'He said, "Look!"'
     sanitized_string = StrSanitizer.double_quote(test_string) 
 
-    expect(sanitized_string).to eq('He said, \"Look!\"')
+    expect(sanitized_string).to eq('He said, \\"Look!\\"')
   end
 
 
@@ -25,6 +25,6 @@ RSpec.describe StrSanitizer do
     test_string = "He said, 'Look!'"
     sanitized_string = StrSanitizer.single_quote(test_string)
 
-    expect(sanitized_string).to eq("He said, \'Look!\'")
+    expect(sanitized_string).to eq("He said, \\'Look!\\'")
   end
 end

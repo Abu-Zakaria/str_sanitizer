@@ -10,11 +10,11 @@ class StrSanitizer
 
     module ClassMethods
       def double_quote(str)
-        str.gsub!(/"/, '\"')
+        str.gsub(/"/, /\\"/.source)
       end
 
       def single_quote(str)
-        str.gsub!(/'/, "\'")
+        str.gsub(/'/, /\\'/.source)
       end
     end
   end
