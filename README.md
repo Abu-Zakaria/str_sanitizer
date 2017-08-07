@@ -23,7 +23,15 @@ Or install it yourself as:
 ## Usage
 
 ##### To escape quotes of a string
-TODO
+```ruby
+require "str_sanitizer"
+
+hello = "He said, 'Hello!'"
+StrSanitizer.double_quote hello # => He said, \'Hello!\' 
+
+hello = "She said, "Hello!"'
+StrSanitizer.single_quote hello # => She said, \"Hello!\"
+```
 
 ## Development
 
