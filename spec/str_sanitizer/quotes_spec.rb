@@ -7,7 +7,6 @@ RSpec.describe StrSanitizer::Quotes do
     @methods = ExampleClass
 
     @no_quote = "Hello there"
-    @has_quote = "He said, 'hello there'"
     @has_single_quote = "He said, 'hello there'"
     @has_double_quote = "He said, \"hello there\""
     @has_both_quotes = "He said, \"Don't do it\""
@@ -61,13 +60,13 @@ RSpec.describe StrSanitizer::Quotes do
   it "returns nil or true value if string has single quote or not" do
     expect(@methods.has_single_quote?(@no_quote)).to eq(nil)
 
-    expect(@methods.has_single_quote?(@has_quote)). to eq(true)
+    expect(@methods.has_single_quote?(@has_single_quote)). to eq(true)
   end
 
   it "returns nil or true value if string has double quote or not" do
     expect(@methods.has_double_quote?(@no_quote)).to eq(nil)
 
-    expect(@methods.has_double_quote?(@has_quote)). to eq(true)
+    expect(@methods.has_double_quote?(@has_double_quote)). to eq(true)
   end
 
   it "returns nil or true value if string has both, double and single quote or not" do
