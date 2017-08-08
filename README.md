@@ -22,15 +22,30 @@ Or install it yourself as:
 
 ## Usage
 
-##### To escape quotes of a string
+- To escape quotes of a string
 ```ruby
 require "str_sanitizer"
 
 hello = 'He said, "Hello!"'
-StrSanitizer.double_quote hello # => He said, \"Hello!\" 
+StrSanitizer.double_quote(hello) # => He said, \"Hello!\" 
 
 hello = "She said, 'Hello!'"
-StrSanitizer.single_quote hello # => She said, \'Hello!\'
+StrSanitizer.single_quote(hello) # => She said, \'Hello!\'
+
+both_quotes = "They said, \"Don't do it!\""
+StrSanitizer.both_quotes(both_quotes) # => They said, \"Don\'t do it!\"
+```
+You can also check if the string has any quote or not
+```ruby
+no_quote = "Hello, there."
+single_quote = "It's going down."
+double_quote = "He said, \"Hello\""
+
+StrSanitizer.has_any_quote?(no_quote) # => nil
+StrSanitizer.has_both_quotes?(no_quote) # => nil
+
+StrSanitizer.has_single_quotes?(single_quote) # => true
+StrSanitizer.has_double_quotes?(double_quote) # => true
 ```
 
 ## Development
