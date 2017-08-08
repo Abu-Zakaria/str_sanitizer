@@ -11,6 +11,14 @@ class StrSanitizer
     def both_quotes(str)
       single_quote(double_quote(str))
     end
+
+    def has_single_quote?(str, pos = 0)
+      true if str.match("'", pos)
+    end
+
+    def has_double_quote?(str, pos = 0)
+      true if str.match('"', pos)
+    end
   end
 end
 
