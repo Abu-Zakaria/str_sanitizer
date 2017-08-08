@@ -10,6 +10,9 @@ RSpec.describe StrSanitizer::Quotes do
     @has_single_quote = "He said, 'hello there'"
     @has_double_quote = "He said, \"hello there\""
     @has_both_quotes = "He said, \"Don't do it\""
+    @has_single_quote_from_pos_2 = "It's going down"
+    @has_double_quote_from_pos_2 = "It\"s going down"
+    @has_both_quote_from_pos_2 = "It's an \""
   end
 
   it "has a method named 'double_quote'" do
@@ -61,12 +64,20 @@ RSpec.describe StrSanitizer::Quotes do
     expect(@methods.has_single_quote?(@no_quote)).to eq(nil)
 
     expect(@methods.has_single_quote?(@has_single_quote)). to eq(true)
+
+    expect(@methods.has_single_quote?(@has_single_quote_from_pos_2, 3)).to eq(nil)
+
+    expect(@methods.has_single_quote?(@has_single_quote_from_pos_2, 2)).to eq(true)
   end
 
   it "returns nil or true value if string has double quote or not" do
     expect(@methods.has_double_quote?(@no_quote)).to eq(nil)
 
     expect(@methods.has_double_quote?(@has_double_quote)). to eq(true)
+
+    expect(@methods.has_double_quote?(@has_double_quote_from_pos_2, 3)).to eq(nil)
+    
+    expect(@methods.has_double_quote?(@has_double_quote_from_pos_2, 2)).to eq(true)
   end
 
   it "returns nil or true value if string has both, double and single quote or not" do
@@ -77,6 +88,10 @@ RSpec.describe StrSanitizer::Quotes do
     expect(@methods.has_both_quotes?(@has_single_quote)). to eq(nil)
 
     expect(@methods.has_both_quotes?(@has_both_quotes)). to eq(true)
+
+    expect(@methods.has_both_quotes?(@has_both_quote_from_pos_2, 3)).to eq(nil)
+
+    expect(@methods.has_both_quotes?(@has_both_quote_from_pos_2, 2)).to eq(true)
   end
 
   it "returns true or nil value if the string has any quotes or not" do
@@ -87,6 +102,16 @@ RSpec.describe StrSanitizer::Quotes do
     expect(@methods.has_any_quote?(@has_double_quote)).to eq(true)
 
     expect(@methods.has_any_quote?(@has_both_quotes)).to eq(true)
+
+    expect(@methods.has_any_quote?(@has_both_quote_from_pos_2, 3)).to eq(true)
+
+    expect(@methods.has_any_quote?(@has_single_quote_from_pos_2, 3)).to eq(nil)
+
+    expect(@methods.has_any_quote?(@has_single_quote_from_pos_2, 2)).to eq(true)
+
+    expect(@methods.has_any_quote?(@has_double_quote_from_pos_2, 3)).to eq(nil)
+    
+    expect(@methods.has_any_quote?(@has_double_quote_from_pos_2, 2)).to eq(true)
   end
 
   it "doesn't do anything if no quote is found" do
