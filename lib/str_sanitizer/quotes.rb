@@ -19,6 +19,10 @@ class StrSanitizer
     def has_double_quote?(str, pos = 0)
       true if str.match('"', pos)
     end
+
+    def has_both_quotes?(str, pos = 0)
+      true if has_single_quote?(str, pos) && has_double_quote?(str, pos)
+    end
   end
 end
 
