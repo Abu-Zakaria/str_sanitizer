@@ -5,6 +5,12 @@ require "str_sanitizer/quotes"
 RSpec.describe StrSanitizer::Quotes do
   before(:each) do
     @methods = ExampleClass
+
+    @no_quote = "Hello there"
+    @has_quote = "He said, 'hello there'"
+    @has_single_quote = "He said, 'hello there'"
+    @has_double_quote = "He said, \"hello there\""
+    @has_both_quotes = "He said, \"Don't do it\""
   end
 
   it "has a method named 'double_quote'" do
@@ -53,59 +59,35 @@ RSpec.describe StrSanitizer::Quotes do
   end
 
   it "returns nil or true value if string has single quote or not" do
-    no_quote = "Hello there"
+    expect(@methods.has_single_quote?(@no_quote)).to eq(nil)
 
-    expect(@methods.has_single_quote?(no_quote)).to eq(nil)
-
-    has_quote = "He said, 'hello there'"
-
-    expect(@methods.has_single_quote?(has_quote)). to eq(true)
+    expect(@methods.has_single_quote?(@has_quote)). to eq(true)
   end
 
   it "returns nil or true value if string has double quote or not" do
-    no_quote = "Hello there"
+    expect(@methods.has_double_quote?(@no_quote)).to eq(nil)
 
-    expect(@methods.has_double_quote?(no_quote)).to eq(nil)
-
-    has_quote = "He said, \"hello there\""
-
-    expect(@methods.has_double_quote?(has_quote)). to eq(true)
+    expect(@methods.has_double_quote?(@has_quote)). to eq(true)
   end
 
   it "returns nil or true value if string has both, double and single quote or not" do
-    no_quote = "Hello there"
+    expect(@methods.has_both_quotes?(@no_quote)).to eq(nil)
 
-    expect(@methods.has_both_quotes?(no_quote)).to eq(nil)
+    expect(@methods.has_both_quotes?(@has_double_quote)). to eq(nil)
 
-    has_double_quote = "He said, \"hello there\""
+    expect(@methods.has_both_quotes?(@has_single_quote)). to eq(nil)
 
-    expect(@methods.has_both_quotes?(has_double_quote)). to eq(nil)
-
-    has_single_quote = "He said, 'hello there'"
-
-    expect(@methods.has_both_quotes?(has_single_quote)). to eq(nil)
-
-    has_both_quotes = "He said, \"Don't do it\""
-
-    expect(@methods.has_both_quotes?(has_both_quotes)). to eq(true)
+    expect(@methods.has_both_quotes?(@has_both_quotes)). to eq(true)
   end
 
   it "returns true or nil value if the string has any quotes or not" do
-    no_quote = "hey there"
+    expect(@methods.has_any_quote?(@no_quote)).to be(nil)
 
-    expect(@methods.has_any_quote?(no_quote)).to be(nil)
+    expect(@methods.has_any_quote?(@has_single_quote)).to eq(true)
 
-    has_single_quote = "He said, 'Hello'"
+    expect(@methods.has_any_quote?(@has_double_quote)).to eq(true)
 
-    expect(@methods.has_any_quote?(has_single_quote)).to eq(true)
-
-    has_double_quote = "She said, \"Hello\""
-
-    expect(@methods.has_any_quote?(has_double_quote)).to eq(true)
-
-    has_both_quotes = "They said, \"Don't go there\""
-
-    expect(@methods.has_any_quote?(has_both_quotes)).to eq(true)
+    expect(@methods.has_any_quote?(@has_both_quotes)).to eq(true)
   end
 
   it "doesn't do anything if no quote is found" do
