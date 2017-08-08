@@ -27,6 +27,10 @@ RSpec.describe StrSanitizer::Quotes do
     expect(@methods.respond_to? :has_both_quotes?).to eq(true)
   end
 
+  it "has a method named 'has_any_quote?'" do
+    expect(@methods.respond_to? :has_any_quote?).to eq(true)
+  end
+
   it "returns string with double quotes escaped" do
     test_string = 'The nerd said, "Look!"'
     escaped_string = @methods.double_quote(test_string)
@@ -84,6 +88,24 @@ RSpec.describe StrSanitizer::Quotes do
     has_both_quotes = "He said, \"Don't do it\""
 
     expect(@methods.has_both_quotes?(has_both_quotes)). to eq(true)
+  end
+
+  it "returns true or nil value if the string has any quotes or not" do
+    no_quote = "hey there"
+
+    expect(@methods.has_any_quote?(no_quote)).to be(nil)
+
+    has_single_quote = "He said, 'Hello'"
+
+    expect(@methods.has_any_quote?(has_single_quote)).to eq(true)
+
+    has_double_quote = "She said, \"Hello\""
+
+    expect(@methods.has_any_quote?(has_double_quote)).to eq(true)
+
+    has_both_quotes = "They said, \"Don't go there\""
+
+    expect(@methods.has_any_quote?(has_both_quotes)).to eq(true)
   end
 
   it "doesn't do anything if no quote is found" do
