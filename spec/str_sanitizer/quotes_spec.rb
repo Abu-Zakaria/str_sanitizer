@@ -1,6 +1,5 @@
 require "spec_helper"
 require "str_sanitizer/quotes"
-require "str_sanitizer/quotes"
 
 RSpec.describe StrSanitizer::Quotes do
   before(:each) do
