@@ -23,7 +23,7 @@ class StrSanitizer
     #
     # Returns:
     # +string+:: An HTML entities escaped +string+
-    def encode(string)
+    def html_encode(string)
       @coder = HTMLEntities.new
       @coder.encode(string)
     end
@@ -35,7 +35,7 @@ class StrSanitizer
     #
     # Returns:
     # +string+:: A string with decoded HTML entities +string+
-    def decode(string)
+    def html_decode(string)
       @coder = HTMLEntities.new
       @coder.decode(string)
     end
