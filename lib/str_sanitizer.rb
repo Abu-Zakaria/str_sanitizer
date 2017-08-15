@@ -22,7 +22,9 @@
 
 require "str_sanitizer/version"
 require "str_sanitizer/quotes"
+require "str_sanitizer/html_entities"
 
 class StrSanitizer
   extend Quotes
+  extend HtmlEntities
 end
