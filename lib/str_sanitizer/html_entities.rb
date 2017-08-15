@@ -1,6 +1,11 @@
 require 'htmlentities'
 
 class StrSanitizer
+
+  # This modules encodes and decodes HTML Entities of a string
+  #
+  # Author:     Jakaria (mailto: jakariablaine120@gmail.com)
+  # Copyright:  Copyright (c) 2017 Jakaria
   module HtmlEntities
 
     # Instantiate htmlentities class to use it for encoding and decoding html entities
