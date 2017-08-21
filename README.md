@@ -51,15 +51,15 @@ Or install it yourself as:
 
 - To sanitizer HTML Entities of a string
   ```ruby
-  string = "<script>alert("Hola!!!")</script>"
+  string = "<script>alert('Hola!!!')</script>"
 
-  StrSanitizer.html_encode(string) # => &lt;script&gt;alert("Hola!!!")&lt;script&gt;
+  StrSanitizer.html_encode(string) # => &lt;script&gt;alert('Hola!!!')&lt;script&gt;
   ```
   You can also decode the a string with encoded HTML entities
   ```ruby
-  string = "&lt;script&gt;alert("Hola!!!")&lt;script&gt"
+  string = "&lt;script&gt;alert('Hola!!!')&lt;script&gt"
 
-  StrSanitizer.html_decode(string) # => <script>alert("Hola!!!")</script>
+  StrSanitizer.html_decode(string) # => <script>alert('Hola!!!')</script>
   ```
   Note: `htmlentities` was used for encoding and decoding process
 
