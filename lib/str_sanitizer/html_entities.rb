@@ -20,12 +20,15 @@ class StrSanitizer
     #
     # Params:
     # +str+:: A +string+ which needs to be escaped from html entities
+    # +options+:: Options for encoding. You can provide one or more than one option. 
+    #             If no option is given, :basic option will be used by default.
+    #             Options available :basic, :named, :decimal, :hexadecimal
     #
     # Returns:
     # +string+:: An HTML entities escaped +string+
-    def html_encode(string)
+    def html_encode(string, *options)
       @coder = HTMLEntities.new
-      @coder.encode(string)
+      @coder.encode(string, *options)
     end
 
     # Decodes the HTML entities of the given string
