@@ -49,7 +49,7 @@ Or install it yourself as:
   StrSanitizer.has_double_quotes?(double_quote) # => true
   ```
 
-- To sanitizer HTML Entities of a string
+- To sanitize HTML Entities of a string
   ```ruby
   string = "<script>alert('Hola!!!')</script>"
 
