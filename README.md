@@ -1,4 +1,5 @@
 [![Gem Version](https://badge.fury.io/rb/str_sanitizer.svg)](https://badge.fury.io/rb/str_sanitizer)
+[![Build Status](https://travis-ci.org/JakariaBlaine/str_sanitizer.svg?branch=master)](https://travis-ci.org/JakariaBlaine/str_sanitizer)
 # StrSanitizer
 
 Welcome to this gem. This gem is about String Sanitization. This gem sanitizes the string which is given.
@@ -23,30 +24,44 @@ Or install it yourself as:
 ## Usage
 
 - To escape quotes of a string
-```ruby
-require "str_sanitizer"
+  ```ruby
+  require "str_sanitizer"
 
-hello = 'He said, "Hello!"'
-StrSanitizer.double_quote(hello) # => He said, \"Hello!\" 
+  hello = 'He said, "Hello!"'
+  StrSanitizer.double_quote(hello) # => He said, \"Hello!\" 
 
-hello = "She said, 'Hello!'"
-StrSanitizer.single_quote(hello) # => She said, \'Hello!\'
+  hello = "She said, 'Hello!'"
+  StrSanitizer.single_quote(hello) # => She said, \'Hello!\'
 
-both_quotes = "They said, \"Don't do it!\""
-StrSanitizer.both_quotes(both_quotes) # => They said, \"Don\'t do it!\"
-```
-You can also check if the string has any quote or not
-```ruby
-no_quote = "Hello, there."
-single_quote = "It's going down."
-double_quote = "He said, \"Hello\""
+  both_quotes = "They said, \"Don't do it!\""
+  StrSanitizer.both_quotes(both_quotes) # => They said, \"Don\'t do it!\"
+  ```
+  You can also check if the string has any quote or not
+  ```ruby
+  no_quote = "Hello, there."
+  single_quote = "It's going down."
+  double_quote = "He said, \"Hello\""
 
-StrSanitizer.has_any_quote?(no_quote) # => nil
-StrSanitizer.has_both_quotes?(no_quote) # => nil
+  StrSanitizer.has_any_quote?(no_quote) # => nil
+  StrSanitizer.has_both_quotes?(no_quote) # => nil
 
-StrSanitizer.has_single_quotes?(single_quote) # => true
-StrSanitizer.has_double_quotes?(double_quote) # => true
-```
+  StrSanitizer.has_single_quotes?(single_quote) # => true
+  StrSanitizer.has_double_quotes?(double_quote) # => true
+  ```
+
+- To sanitizer HTML Entities of a string
+  ```ruby
+  string = "<script>alert('Hola!!!')</script>"
+
+  StrSanitizer.html_encode(string) # => &lt;script&gt;alert('Hola!!!')&lt;script&gt;
+  ```
+  You can also decode the a string with encoded HTML entities
+  ```ruby
+  string = "&lt;script&gt;alert('Hola!!!')&lt;script&gt"
+
+  StrSanitizer.html_decode(string) # => <script>alert('Hola!!!')</script>
+  ```
+  Note: `htmlentities` was used for encoding and decoding process
 
 ## Development
 

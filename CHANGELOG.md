@@ -1,3 +1,8 @@
+## StrSanitizer 0.3.0 (August 21, 2017) ##
+
+* Added a new `HtmlEntities` module which encodes and decodes HTML Entities.
+* A new dependency named `htmlentities`.
+
 ## StrSanitizer 0.2.0 (August 09, 2017) ##
 
 * Changed the structure of the module in `lib/str_sanitizer/quotes.rb` file. Removed the `InstanceMethods` module and `included` class method of `Quotes` module. Remove the `ClassMethods` class too from `Quotes` module. Re-structured the whole module.

@@ -22,7 +22,11 @@
 
 require "str_sanitizer/version"
 require "str_sanitizer/quotes"
+require "str_sanitizer/html_entities"
 
+# Author:     Jakaria (mailto: jakariablaine120@gmail.com)
+# Copyright:  Copyright (c) 2017 Jakaria
 class StrSanitizer
   extend Quotes
+  extend HtmlEntities
 end
