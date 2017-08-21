@@ -14,4 +14,9 @@ RSpec.describe StrSanitizer do
     expect(StrSanitizer.respond_to? :has_both_quotes?).to eq true
     expect(StrSanitizer.respond_to? :has_any_quote?).to eq true
   end
+
+  it "can invoke the methods of HtmlEntities module" do
+    expect(StrSanitizer.respond_to? :html_encode).to eq true
+    expect(StrSanitizer.respond_to? :html_decode).to eq true
+  end
 end
