@@ -2,6 +2,8 @@
 [![Build Status](https://travis-ci.org/JakariaBlaine/str_sanitizer.svg?branch=master)](https://travis-ci.org/JakariaBlaine/str_sanitizer)
 # StrSanitizer
 
+[![Join the chat at https://gitter.im/str_sanitizer/Lobby](https://badges.gitter.im/str_sanitizer/Lobby.svg)](https://gitter.im/str_sanitizer/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Welcome to this gem. This gem is about String Sanitization. This gem sanitizes the string which is given.
 
 
