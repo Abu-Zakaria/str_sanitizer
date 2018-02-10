@@ -1,5 +1,6 @@
 [![Gem Version](https://badge.fury.io/rb/str_sanitizer.svg)](https://badge.fury.io/rb/str_sanitizer)
 [![Build Status](https://travis-ci.org/JakariaBlaine/str_sanitizer.svg?branch=master)](https://travis-ci.org/JakariaBlaine/str_sanitizer)
+[![Open Source Helpers](https://www.codetriage.com/jakariablaine/str_sanitizer/badges/users.svg)](https://www.codetriage.com/jakariablaine/str_sanitizer)
 # StrSanitizer
 
 [![Join the chat at https://gitter.im/str_sanitizer/Lobby](https://badges.gitter.im/str_sanitizer/Lobby.svg)](https://gitter.im/str_sanitizer/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
