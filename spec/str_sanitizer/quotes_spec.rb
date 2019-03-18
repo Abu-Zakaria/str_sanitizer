@@ -12,6 +12,7 @@ RSpec.describe StrSanitizer::Quotes do
     @has_single_quote_from_pos_2 = "It's going down"
     @has_double_quote_from_pos_2 = "It\"s going down"
     @has_both_quote_from_pos_2 = "It's an \""
+    @has_open_and_close_quote = '“String with them funny quotation marks”'
   end
 
   it "has a method named 'double_quote'" do
@@ -38,6 +39,14 @@ RSpec.describe StrSanitizer::Quotes do
     expect(@module.respond_to? :has_any_quote?).to eq(true)
   end
 
+  it "has a method named 'has_open_quote?'" do
+    expect(@module.respond_to? :has_open_quote?).to eq(true)
+  end
+
+  it "has a method named 'has_close_quote?'" do
+    expect(@module.respond_to? :has_close_quote?).to eq(true)
+  end
+
   it "returns string with double quotes escaped" do
     test_string = 'The nerd said, "Look!"'
     escaped_string = @module.double_quote(test_string)
@@ -52,10 +61,17 @@ RSpec.describe StrSanitizer::Quotes do
     expect(escaped_string).to eq("They said, \\'hello world!\\'")
   end
 
+  it "returns string with open and close quotes escaped" do
+    test_string = '“String with them funny quotation marks”'
+    escaped_string = @module.open_and_close_quote(test_string)
+
+    expect(escaped_string).to eql('\\“String with them funny quotation marks\\”')
+  end
+
   it "returns string with both, single and double quotes escaped" do
     test_string = "The man says, \"Don't do it\""
     escaped_string = @module.both_quotes(test_string)
-    
+
     expect(escaped_string).to eq("The man says, \\\"Don\\'t do it\\\"")
   end
 
@@ -67,6 +83,8 @@ RSpec.describe StrSanitizer::Quotes do
     expect(@module.has_single_quote?(@has_single_quote_from_pos_2, 3)).to eq(nil)
 
     expect(@module.has_single_quote?(@has_single_quote_from_pos_2, 2)).to eq(true)
+
+    expect(@module.has_single_quote?(@has_open_and_close_quote)).to eql(nil)
   end
 
   it "returns nil or true value if string has double quote or not" do
@@ -75,8 +93,10 @@ RSpec.describe StrSanitizer::Quotes do
     expect(@module.has_double_quote?(@has_double_quote)). to eq(true)
 
     expect(@module.has_double_quote?(@has_double_quote_from_pos_2, 3)).to eq(nil)
-    
+
     expect(@module.has_double_quote?(@has_double_quote_from_pos_2, 2)).to eq(true)
+
+    expect(@module.has_double_quote?(@has_open_and_close_quote)).to eql(nil)
   end
 
   it "returns nil or true value if string has both, double and single quote or not" do
@@ -91,6 +111,8 @@ RSpec.describe StrSanitizer::Quotes do
     expect(@module.has_both_quotes?(@has_both_quote_from_pos_2, 3)).to eq(nil)
 
     expect(@module.has_both_quotes?(@has_both_quote_from_pos_2, 2)).to eq(true)
+
+    expect(@module.has_both_quotes?(@has_open_and_close_quote)).to eql(nil)
   end
 
   it "returns true or nil value if the string has any quotes or not" do
@@ -109,8 +131,10 @@ RSpec.describe StrSanitizer::Quotes do
     expect(@module.has_any_quote?(@has_single_quote_from_pos_2, 2)).to eq(true)
 
     expect(@module.has_any_quote?(@has_double_quote_from_pos_2, 3)).to eq(nil)
-    
+
     expect(@module.has_any_quote?(@has_double_quote_from_pos_2, 2)).to eq(true)
+
+    expect(@module.has_any_quote?(@has_open_and_close_quote)).to eql(true)
   end
 
   it "doesn't do anything if no quote is found" do
