@@ -9,10 +9,14 @@ RSpec.describe StrSanitizer do
     expect(StrSanitizer.respond_to? :double_quote).to eq true
     expect(StrSanitizer.respond_to? :single_quote).to eq true
     expect(StrSanitizer.respond_to? :both_quotes).to eq true
+    expect(StrSanitizer.respond_to? :open_quote).to eq true
+    expect(StrSanitizer.respond_to? :close_quote).to eq true
     expect(StrSanitizer.respond_to? :has_single_quote?).to eq true
     expect(StrSanitizer.respond_to? :has_double_quote?).to eq true
     expect(StrSanitizer.respond_to? :has_both_quotes?).to eq true
     expect(StrSanitizer.respond_to? :has_any_quote?).to eq true
+    expect(StrSanitizer.respond_to? :has_open_quote?).to eq true
+    expect(StrSanitizer.respond_to? :has_close_quote?).to eq true
   end
 
   it "can invoke the methods of HtmlEntities module" do
